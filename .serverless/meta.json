@@ -1,0 +1,260 @@
+{
+  "C:\\pinapp\\challenge": {
+    "versionSfCore": null,
+    "versionFramework": "4.1.22",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeResolverProviders": {
+      "aws": {
+        "instance": {
+          "credentials": "<REDACTED>",
+          "serviceConfigFile": {
+            "org": "fda1370",
+            "app": "challenge",
+            "service": "cliente",
+            "provider": {
+              "name": "aws",
+              "runtime": "nodejs14.x",
+              "environment": {
+                "DB_HOST": "database-1.cfau8m88yo7d.us-west-2.rds.amazonaws.com",
+                "DB_USER": "admin",
+                "DB_PASS": "Fda1370T",
+                "DB_NAME": "challenge-pinapp",
+                "DB_DIALECT": "mssql"
+              },
+              "stage": "dev",
+              "region": "us-east-1",
+              "versionFunctions": true
+            },
+            "functions": {
+              "creacliente": {
+                "handler": "src/app.handler",
+                "events": [
+                  {
+                    "http": {
+                      "path": "creacliente",
+                      "method": "post"
+                    }
+                  }
+                ]
+              },
+              "kpiClients": {
+                "handler": "src/app.handler",
+                "events": [
+                  {
+                    "http": {
+                      "path": "kpideclientes",
+                      "method": "get"
+                    }
+                  }
+                ]
+              },
+              "listClients": {
+                "handler": "src/app.handler",
+                "events": [
+                  {
+                    "http": {
+                      "path": "listclientes",
+                      "method": "get"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "configFileDirPath": "C:\\pinapp\\challenge",
+          "config": {
+            "type": "aws"
+          },
+          "options": {},
+          "stage": "dev",
+          "dashboard": null,
+          "isDefaultConfig": true
+        },
+        "resolvers": {}
+      },
+      "env": {
+        "instance": {
+          "credentials": "<REDACTED>",
+          "serviceConfigFile": {
+            "org": "fda1370",
+            "app": "challenge",
+            "service": "cliente",
+            "provider": {
+              "name": "aws",
+              "runtime": "nodejs14.x",
+              "environment": {
+                "DB_HOST": "database-1.cfau8m88yo7d.us-west-2.rds.amazonaws.com",
+                "DB_USER": "admin",
+                "DB_PASS": "Fda1370T",
+                "DB_NAME": "challenge-pinapp",
+                "DB_DIALECT": "mssql"
+              },
+              "stage": "dev",
+              "region": "us-east-1",
+              "versionFunctions": true
+            },
+            "functions": {
+              "creacliente": {
+                "handler": "src/app.handler",
+                "events": [
+                  {
+                    "http": {
+                      "path": "creacliente",
+                      "method": "post"
+                    }
+                  }
+                ]
+              },
+              "kpiClients": {
+                "handler": "src/app.handler",
+                "events": [
+                  {
+                    "http": {
+                      "path": "kpideclientes",
+                      "method": "get"
+                    }
+                  }
+                ]
+              },
+              "listClients": {
+                "handler": "src/app.handler",
+                "events": [
+                  {
+                    "http": {
+                      "path": "listclientes",
+                      "method": "get"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "configFileDirPath": "C:\\pinapp\\challenge",
+          "config": {
+            "type": "env"
+          },
+          "options": {},
+          "stage": "dev",
+          "dashboard": null
+        },
+        "resolvers": {}
+      }
+    },
+    "composeServiceName": null,
+    "servicePath": "C:\\pinapp\\challenge",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "org": "fda1370",
+      "app": "challenge",
+      "service": "cliente",
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs14.x",
+        "environment": {
+          "DB_HOST": "database-1.cfau8m88yo7d.us-west-2.rds.amazonaws.com",
+          "DB_USER": "admin",
+          "DB_PASS": "Fda1370T",
+          "DB_NAME": "challenge-pinapp",
+          "DB_DIALECT": "mssql"
+        },
+        "stage": "dev",
+        "region": "us-east-1",
+        "versionFunctions": true
+      },
+      "functions": {
+        "creacliente": {
+          "handler": "src/app.handler",
+          "events": [
+            {
+              "http": {
+                "path": "creacliente",
+                "method": "post"
+              }
+            }
+          ]
+        },
+        "kpiClients": {
+          "handler": "src/app.handler",
+          "events": [
+            {
+              "http": {
+                "path": "kpideclientes",
+                "method": "get"
+              }
+            }
+          ]
+        },
+        "listClients": {
+          "handler": "src/app.handler",
+          "events": [
+            {
+              "http": {
+                "path": "listclientes",
+                "method": "get"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "serviceRawFile": "# \"org\" ensures this Service is used with the correct Serverless Framework Access Key.\r\norg: fda1370\r\n# \"app\" enables Serverless Framework Dashboard features and sharing them with other Services.\r\napp: challenge\r\nservice: cliente\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs14.x\r\n  environment:\r\n    DB_HOST: ${env:DB_HOST}\r\n    DB_USER: ${env:DB_USER}\r\n    DB_PASS: ${env:DB_PASS}\r\n    DB_NAME: ${env:DB_NAME}\r\n    DB_DIALECT: mssql\r\n\r\nfunctions:\r\n  creacliente:\r\n    handler: src/app.handler\r\n    events:\r\n      - http:\r\n          path: creacliente\r\n          method: post\r\n\r\n  kpiClients:\r\n    handler: src/app.handler\r\n    events:\r\n      - http:\r\n          path: kpideclientes\r\n          method: get\r\n\r\n  listClients:\r\n    handler: src/app.handler\r\n    events:\r\n      - http:\r\n          path: listclientes\r\n          method: get",
+    "command": [
+      "offline",
+      "start"
+    ],
+    "options": {},
+    "error": {
+      "message": "Serverless command \"offline start\" not found. Run \"serverless help\" for a list of all available commands.",
+      "code": "UNRECOGNIZED_CLI_COMMAND"
+    },
+    "params": {},
+    "machineId": "ea73a915de19d2400f390bece1af1840",
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "7e361f6a-2c8a-4d24-9f8a-2735a607970e",
+    "orgName": "fda1370",
+    "userId": "Z1DpQgV4p8HTPb0K6K",
+    "dashboard": {
+      "isEnabledForService": true,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": {
+        "providers": false,
+        "monitoring": false
+      },
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": "X3NsDx7xNTxhDZN4hb",
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "userName": "fda1370",
+    "subscription": null,
+    "userEmail": "fd.albarracin@gmail.com",
+    "serviceProviderAwsCredentials": "<REDACTED>",
+    "serviceProviderAwsAccountId": "970547365761",
+    "versionSf": "4.1.22",
+    "serviceProviderAwsCfStackName": "cliente-dev",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  },
+  "unknown": {
+    "versionSfCore": null,
+    "versionFramework": "4.1.22",
+    "isWithinCompose": false,
+    "composeOrgName": null,
+    "composeServiceName": null,
+    "command": [],
+    "options": {},
+    "error": null,
+    "machineId": "ea73a915de19d2400f390bece1af1840",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}

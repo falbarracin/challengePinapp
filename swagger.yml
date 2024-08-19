@@ -1,0 +1,39 @@
+openapi: 3.0.0
+info:
+  title: API Clientes
+  version: 1.0.0
+paths:
+  /creacliente:
+    post:
+      summary: Crear un nuevo cliente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                apellido:
+                  type: string
+                edad:
+                  type: integer
+                fechaNacimiento:
+                  type: string
+                  format: date
+      responses:
+        '201':
+          description: Cliente creado exitosamente
+  /kpideclientes:
+    get:
+      summary: Obtener KPI de clientes
+      responses:
+        '200':
+          description: KPI calculado exitosamente
+  /listclientes:
+    get:
+      summary: Listar clientes
+      responses:
+        '200':
+          description: Lista de clientes
