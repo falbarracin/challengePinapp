@@ -1,7 +1,7 @@
 const Cliente = require('../models/customerModel');
 const { verifyConnection } = require('../models/index'); 
 
-// POST /creacliente
+// POST creacliente
 module.exports.creaCliente = async (event,res) => {   
     try{
         console.log('Datos recibidos:', event.body); 
@@ -36,7 +36,7 @@ module.exports.creaCliente = async (event,res) => {
  
 };
 
-// GET /kpideclientes
+// GET kpideclientes
 module.exports.kpideClientes = async (event,res) => {
     try{
         const clientes = await Cliente.findAll();
@@ -47,10 +47,6 @@ module.exports.kpideClientes = async (event,res) => {
         const varianza = clientes.reduce((sum, cliente) => sum + Math.pow(cliente.edad - promedioEdad, 2), 0) / clientes.length;
         const desviacionEstandar = Math.sqrt(varianza);
 
-        // return {
-        //     statusCode: 200,
-        //     body: JSON.stringify({ promedioEdad, desviacionEstandar }),
-        // };
         res.status(200).json({
             promedioEdad,
             desviacionEstandar
@@ -63,19 +59,15 @@ module.exports.kpideClientes = async (event,res) => {
     }  
 };
 
-// GET /listclientes
+// GET listclientes
 module.exports.listClientes = async (event,res) => {
     try{
         console.log("Entra get list");
         const clientes = await Cliente.findAll();
-
-        const clientesResult= clientes.map(cliente => {
-            const edadActual = cliente.edad;
-            const expectativaDeVida = 80; 
-            const aniosDif = expectativaDeVida - edadActual;
+        const expectativaDeVida = 80; 
+        const clientesResult= clientes.map(cliente => {                     
             const fechaProbableDeMuerte = new Date(cliente.fechaNacimiento);
-            fechaProbableDeMuerte.setFullYear(fechaProbableDeMuerte.getFullYear() + aniosDif);
-        
+            fechaProbableDeMuerte.setFullYear(fechaProbableDeMuerte.getFullYear() + expectativaDeVida);        
             return {
             ...cliente.toJSON(),
             fechaProbableDeMuerte,

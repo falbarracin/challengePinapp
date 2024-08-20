@@ -16,21 +16,21 @@ provider:
 
 functions:
   creacliente:
-    handler: src/app.handler
+    handler: src/handler.handler
     events:
       - http:
           path: creacliente
           method: post
 
   kpiClients:
-    handler: src/app.handler
+    handler: src/handler.handler
     events:
       - http:
           path: kpideclientes
           method: get
 
   listClients:
-    handler: src/app.handler
+    handler: src/handler.handler
     events:
       - http:
           path: listclientes

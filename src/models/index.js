@@ -8,11 +8,11 @@ const config = require('../config/config.js')['development'];
     dialect: process.env.DB_DIALECT,
     dialectOptions: {
       options: {
-        // encrypt: true, 
-        // trustServerCertificate: true,
+        useUTC: false,
         requestTimeout: 3000
       }
     },
+    timezone: '+00:00',
     logging: console.log 
   });
 
