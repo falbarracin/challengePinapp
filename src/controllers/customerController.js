@@ -19,8 +19,7 @@ module.exports.creaCliente = async (event,res) => {
             });        
          
         }
-        else{
-            console.log("No entra a create ");
+        else{           
             res.status(400).json({
                 message: 'Bad Request'
               });          
@@ -29,7 +28,7 @@ module.exports.creaCliente = async (event,res) => {
        
     }
     catch(error){
-        res.status(400).json({
+        res.status(500).json({
             message: 'Ocurrio un inconveniente'
           });        
     }
@@ -53,7 +52,7 @@ module.exports.kpideClientes = async (event,res) => {
          });  
     }
     catch(error){
-        res.status(400).json({
+        res.status(500).json({
             message: 'Ocurrio un inconveniente'
           });    
     }  
@@ -81,7 +80,7 @@ module.exports.listClientes = async (event,res) => {
           });      
     }
     catch(error){
-        res.status(400).json({
+        res.status(500).json({
             message: 'Ocurrio un inconveniente'
           });     
     }  
